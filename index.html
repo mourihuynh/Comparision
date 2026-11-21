@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparison – So sánh</title>
+<style>
+:root{--bg:#f1f7f6;--card:#fff;--tx:#0f1a24;--mut:#3b4a57;--bd:#c6dad6;--a:#00756a;--soft:#dcf3ef;--ok:#0b7a3b;--okb:#dff5e8;--no:#b3261e;--nob:#fde7e5;--hl:#fff1c2;--on:#fff}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1517;--card:#122125;--tx:#f1fbfa;--mut:#b4cfcb;--bd:#2b4749;--a:#5eead4;--soft:#173a3b;--ok:#5ee19a;--okb:#143324;--no:#ff8f86;--nob:#3b1a18;--hl:#3b3413;--on:#08201f}}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;font-size:19px;line-height:1.65;background:var(--bg);color:var(--tx)}
+.top{background:var(--a);color:var(--on);padding:30px 18px 26px;text-align:center}
+.top h1{margin:0;font-size:clamp(28px,6vw,44px);letter-spacing:.5px}
+.top p{margin:6px 0 0;font-size:18px}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:2px solid var(--bd);padding:10px 12px;display:flex;gap:8px;overflow-x:auto}
+nav button{flex:none;border:2px solid var(--bd);background:var(--card);color:var(--tx);padding:10px 16px;border-radius:12px;font:700 16px inherit;font-family:inherit;cursor:pointer;text-align:left}
+nav button small{display:block;font-weight:500;font-size:12px;color:var(--mut)}
+nav button.on{background:var(--a);border-color:var(--a);color:var(--on)}
+nav button.on small{color:var(--on)}
+main{max-width:860px;margin:0 auto;padding:22px 14px 70px}
+h2.t{font-size:clamp(28px,5vw,38px);margin:4px 0 2px}
+.vi{color:var(--mut);margin:0 0 16px}
+.card{background:var(--card);border:2px solid var(--bd);border-radius:18px;padding:20px 22px;margin-bottom:16px}
+.card h3{margin:0 0 12px;font-size:22px;display:flex;align-items:center;gap:12px}
+.card h3 b{background:var(--a);color:var(--on);border-radius:10px;padding:2px 12px;font-size:19px}
+.card ul{margin:0;padding-left:24px}.card li{margin:8px 0}
+.card p{margin:0}
+.f{background:var(--soft);border-left:6px solid var(--a);border-radius:10px;padding:12px 16px;margin:10px 0}
+.f code{display:block;font:700 19px "Segoe UI",system-ui,sans-serif;color:var(--a)}
+.f span{display:block;margin-top:4px}
+mark{background:var(--hl);color:inherit;border-radius:4px;padding:0 4px}
+.q{border-top:2px dashed var(--bd);padding:16px 0}
+.q:first-of-type{border-top:0}
+.q p{margin:0 0 10px;font-weight:600}
+.tag{display:inline-block;background:var(--soft);color:var(--a);border-radius:99px;padding:1px 12px;font-size:14px;margin-right:8px;font-weight:700}
+.o{display:flex;flex-wrap:wrap;gap:10px}
+.o button,.ck{border:2px solid var(--bd);background:var(--card);color:var(--tx);border-radius:12px;padding:10px 16px;font:600 18px inherit;font-family:inherit;cursor:pointer}
+.o button:hover:not(:disabled){border-color:var(--a)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+input[type=text]{flex:1;min-width:200px;border:2px solid var(--bd);background:var(--card);color:var(--tx);border-radius:12px;padding:10px 14px;font:18px inherit;font-family:inherit}
+input[type=text]:focus{outline:3px solid var(--a)}
+.ck{background:var(--a);border-color:var(--a);color:var(--on)}
+.fb{margin-top:8px;border-radius:10px;padding:8px 14px;font-weight:600}
+.fb.y{background:var(--okb);color:var(--ok)}.fb.n{background:var(--nob);color:var(--no)}
+.ok2{background:var(--okb)!important;border-color:var(--ok)!important;color:var(--ok)!important}
+.no2{background:var(--nob)!important;border-color:var(--no)!important;color:var(--no)!important}
+.sc{font-size:22px;font-weight:800;color:var(--a);margin-top:14px}
+.rs{margin-left:12px;border:2px solid var(--a);background:transparent;color:var(--a);border-radius:10px;padding:6px 14px;font:700 16px inherit;font-family:inherit;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="top"><h1>COMPARISON</h1><p>So sánh trong tiếng Anh — lý thuyết chi tiết, bài tập chấm điểm tức thì</p></div>
+<nav id="nav"></nav>
+<main id="app"></main>
+<script>
+const T=[
+{k:"Equality",vi:"So sánh bằng • as … as",
+d:"So sánh bằng dùng để nói hai người/vật <b>có mức độ giống nhau</b> về một đặc điểm. Dạng phủ định (not as … as) diễn tả <b>kém hơn</b>, không bằng.",
+i:["Hai đối tượng ngang nhau: She is as tall as her brother.","Phủ định – không bằng: This book isn’t as interesting as that one.","So sánh số lượng: as many … as (đếm được), as much … as (không đếm được).","Cụm cố định: as soon as possible, the same as, twice as … as (gấp đôi)."],
+s:[["S + be + as + adj + as + N / đại từ","He is as clever as his sister."],["S + V + as + adv + as + N / đại từ","She runs as fast as me."],["as many + N đếm được + as • as much + N không đếm được + as","I have as many books as you. • She earns as much money as him."],["Phủ định: S + be + not + as / so + adj + as","This exam isn’t as difficult as the last one."],["the same + N + as • twice / three times + as + adj + as","My bag is the same size as yours. • He is twice as old as me."]],
+n:["Giữa hai chữ as luôn là <b>tính từ/trạng từ nguyên mẫu</b>, không thêm -er (✗ as taller as).","Không dùng <b>than</b> trong so sánh bằng (✗ as clever than).","Sau as thứ hai dùng tân ngữ (as tall as <b>me</b>) hoặc chủ ngữ + trợ động từ (as tall as <b>I am</b>).","Dùng <b>the same … as</b>, không dùng “as same”.","Có thể nhấn mạnh bằng just, almost, nearly, not quite: She is almost as tall as me."],
+a:["<mark>Bước 1:</mark> Xác định hai đối tượng và đặc điểm đem ra so sánh.","<mark>Bước 2:</mark> Giữ tính từ/trạng từ ở dạng nguyên mẫu.","<mark>Bước 3:</mark> Đặt vào khung as + adj/adv + as (many/much nếu so sánh số lượng).","<mark>Bước 4:</mark> Nếu hai đối tượng không bằng nhau, thêm not (not as … as)."],
+q:[["mc","She is as ___ as her sister.","tall",["tall","taller","tallest"]],["mc","He runs as ___ as me.","fast",["fast","faster","fastest"]],["mc","There aren’t as ___ people here as yesterday.","many",["much","many","more"]],["mc","Which is correct?","My bag is the same size as yours.",["My bag is same size as yours.","My bag is the same size as yours.","My bag is as same size as yours."]],["mc","Which sentence means “A is shorter than B”?","A isn’t as tall as B.",["A is as tall as B.","A isn’t as tall as B.","A is taller than B."]],["fill","This exam isn’t ___ difficult as the last one.","as|so"],["fill","Please reply as ___ as possible.","soon"],["fill","She earns as ___ money as her husband.","much"],["rw","Rewrite: Tom is 1.8 m tall. Jim is 1.8 m tall. (Start: Tom is…)","Tom is as tall as Jim."],["rw","Rewrite with not as … as: This car is cheaper than that one. (Start: That car…)","That car isn’t as cheap as this one.|That car isn’t so cheap as this one."],["fix","Correct the mistake: She is as taller as her brother.","She is as tall as her brother."],["fix","Correct the mistake: He is not as clever than his sister.","He is not as clever as his sister."]]},
+{k:"Comparative",vi:"So sánh hơn • bigger / more beautiful",
+d:"So sánh hơn dùng để so sánh <b>hai đối tượng</b> (hoặc một đối tượng ở hai thời điểm), trong đó một bên có mức độ <b>cao hơn hoặc thấp hơn</b> bên kia. Hình thức phụ thuộc độ dài của tính từ/trạng từ.",
+i:["So sánh hai người/vật: My house is bigger than yours.","So sánh một đối tượng ở hai thời điểm: She is happier than before.","Nhấn mạnh mức độ khác biệt: much / far / a lot / even + so sánh hơn.","So sánh kém: less + adj + than (less expensive than)."],
+s:[["Tính từ ngắn (1 âm tiết): adj + -er + than","tall → taller than • nice → nicer than"],["Quy tắc đổi chính tả","Tận cùng -e: thêm -r (nice → nicer) • phụ âm–nguyên âm–phụ âm: gấp đôi (big → bigger, hot → hotter) • -y → -ier (happy → happier)"],["Tính từ dài (từ 2 âm tiết, không tận cùng -y): more + adj + than","more beautiful than • more interesting than"],["Bất quy tắc","good → better • bad → worse • far → farther/further • little → less • many/much → more"],["Nhấn mạnh và so sánh kém","This phone is much better than that one. • It is less expensive than yours."]],
+n:["<b>Không dùng more + -er</b> cùng lúc (✗ more bigger, ✗ more happier).","Sau than dùng tân ngữ (than <b>me</b>) hoặc chủ ngữ + trợ động từ (than <b>I do</b>).","Nhấn mạnh bằng <b>much, far, a lot, even</b>, không dùng very (✗ very better).","Tính từ 2 âm tiết tận cùng -y, -er, -ow, -le thường thêm -er (clever → cleverer, simple → simpler).","Không dùng the khi so sánh hơn giữa hai đối tượng."],
+a:["<mark>Bước 1:</mark> Đếm số âm tiết của tính từ/trạng từ.","<mark>Bước 2:</mark> Ngắn → thêm -er (chú ý chính tả); dài → dùng more.","<mark>Bước 3:</mark> Kiểm tra từ bất quy tắc (good, bad, far…).","<mark>Bước 4:</mark> Thêm than + đối tượng thứ hai."],
+q:[["mc","My house is ___ than yours.","bigger",["big","bigger","more big"]],["mc","This film is ___ than the last one.","more interesting",["more interesting","interestinger","most interesting"]],["mc","Which is correct?","She is happier than before.",["She is more happier than before.","She is happier than before.","She is happyer than before."]],["mc","The comparative of “good” is…","better",["gooder","better","more good"]],["mc","This phone is ___ better than that one.","much",["very","much","more"]],["fill","Hanoi is ___ than Ho Chi Minh City. (cold)","colder"],["fill","Today is ___ than yesterday. (hot)","hotter"],["fill","This exercise is ___ than the previous one. (difficult)","more difficult"],["fill","His health is ___ than last year. (bad)","worse"],["rw","Rewrite: My sister is 25. I am 22. (Start: My sister is…)","My sister is older than me.|My sister is older than I am."],["rw","Rewrite: A bike is not as fast as a car. (Start: A car…)","A car is faster than a bike."],["fix","Correct the mistake: He is more taller than his brother.","He is taller than his brother."]]},
+{k:"Superlative",vi:"So sánh nhất • biggest / most beautiful",
+d:"So sánh nhất dùng để chỉ <b>một đối tượng nổi trội nhất</b> (cao nhất, thấp nhất) so với <b>tất cả đối tượng còn lại trong nhóm từ 3 trở lên</b>.",
+i:["Chỉ người/vật nổi bật nhất trong nhóm: She is the tallest student in the class.","Xếp hạng: It was the hottest day of the year.","Nói về trải nghiệm: This is the best film I have ever seen.","Cấu trúc one of the + so sánh nhất + danh từ số nhiều: one of the best players."],
+s:[["Tính từ ngắn: the + adj + -est","tall → the tallest • big → the biggest • nice → the nicest • happy → the happiest"],["Tính từ dài: the + most / least + adj","the most beautiful • the most interesting • the least expensive"],["Bất quy tắc","good → the best • bad → the worst • far → the farthest/furthest • little → the least • many/much → the most"],["Phạm vi so sánh: in + nơi/nhóm số ít • of + nhóm số nhiều","the best student in the class • the tallest of the three"],["one of the + superlative + N (số nhiều)","He is one of the best players in the team."]],
+n:["<b>Luôn có the</b> trước so sánh nhất (kể cả the most).","<b>in</b> + địa điểm/nhóm số ít (in the world, in my class); <b>of</b> + nhóm số nhiều hoặc con số (of all, of the three).","Thường đi với <b>present perfect + ever</b>: the best … I have ever seen.","Không dùng the khi có tính từ sở hữu: my best friend.","Không dùng cả most và -est (✗ the most tallest)."],
+a:["<mark>Bước 1:</mark> Xác định nhóm có từ 3 đối tượng trở lên.","<mark>Bước 2:</mark> Chọn -est (ngắn) hoặc most (dài), nhớ từ bất quy tắc.","<mark>Bước 3:</mark> Thêm the phía trước.","<mark>Bước 4:</mark> Thêm in/of để chỉ phạm vi so sánh."],
+q:[["mc","Mount Everest is the ___ mountain in the world.","highest",["high","higher","highest"]],["mc","This is ___ beautiful place I have ever visited.","the most",["more","the most","most"]],["mc","She is the best student ___ the class.","in",["of","in","at"]],["mc","He is the tallest ___ the three brothers.","of",["of","in","among of"]],["mc","Which is correct?","He is one of the best players.",["He is one of the best player.","He is one of the best players.","He is one of the better players."]],["fill","Yesterday was the ___ day of the year. (hot)","hottest"],["fill","This is the ___ film I have ever seen. (bad)","worst"],["fill","She is the ___ girl in the group. (happy)","happiest"],["fill","It was the ___ lesson of the week. (interesting)","most interesting"],["rw","Rewrite: No one in the class is taller than Nam. (Start: Nam is…)","Nam is the tallest in the class.|Nam is the tallest student in the class."],["rw","Rewrite: I have never eaten a better pizza. (Start: This is…)","This is the best pizza I have ever eaten."],["fix","Correct the mistake: He is the most tallest boy in the class.","He is the tallest boy in the class."]]},
+{k:"Double Comparatives",vi:"So sánh kép • more and more",
+d:"So sánh kép (so sánh tăng tiến) <b>lặp lại dạng so sánh hơn</b> để diễn tả một sự việc <b>thay đổi dần dần, liên tục</b> theo hướng tăng hoặc giảm.",
+i:["Sự thay đổi từ từ theo thời gian: The weather is getting colder and colder.","Nhấn mạnh sự tăng/giảm liên tục: Life is becoming more and more expensive.","Số lượng ngày một nhiều: More and more people are learning English.","Thường đi với get, become, grow, turn."],
+s:[["Tính từ ngắn: adj-er + and + adj-er","bigger and bigger • colder and colder • happier and happier"],["Tính từ dài: more and more + adj • less and less + adj","more and more beautiful • less and less interested"],["more and more + N / V + more and more","More and more people use smartphones. • She talks more and more."],["Bất quy tắc","better and better • worse and worse • less and less • more and more"]],
+n:["Tính từ ngắn: lặp lại cả dạng -er, <b>không thêm more</b> (✗ more bigger and more bigger).","Tính từ dài: chỉ <b>lặp more</b>, tính từ chỉ viết một lần (more and more crowded).","Không dùng <b>than</b> trong cấu trúc này.","Thường dùng thì tiếp diễn với get/become: is getting, was becoming.","Chú ý chính tả khi thêm -er: big → bigger, hot → hotter."],
+a:["<mark>Bước 1:</mark> Nhận ra sự thay đổi diễn ra dần dần.","<mark>Bước 2:</mark> Ngắn → lặp adj-er and adj-er; dài → more and more + adj.","<mark>Bước 3:</mark> Đặt sau get/become/grow hoặc sau động từ chính.","<mark>Bước 4:</mark> Kiểm tra từ bất quy tắc (better and better, worse and worse)."],
+q:[["mc","The weather is getting ___.","colder and colder",["colder and colder","more cold and more cold","coldest and coldest"]],["mc","Life is becoming ___ expensive.","more and more",["more and more","more or more","most and most"]],["mc","Her English is getting ___.","better and better",["gooder and gooder","better and better","more and more good"]],["mc","Which is correct?","The city is getting more and more crowded.",["The city is getting more and more crowded.","The city is getting more crowded and more crowded.","The city is getting crowdeder and crowdeder."]],["mc","___ people are using smartphones.","More and more",["More and more","Most and most","Many and many"]],["fill","The balloon got ___ . (big)","bigger and bigger"],["fill","The problem is becoming ___ . (serious)","more and more serious"],["fill","As he waited, he felt ___ . (nervous)","more and more nervous"],["fill","Her health is getting ___ . (bad)","worse and worse"],["rw","Rewrite: The situation is getting worse every day. (Start: The situation is getting…)","The situation is getting worse and worse."],["rw","Rewrite: Prices are rising all the time. (Start: Prices are getting…)","Prices are getting higher and higher.|Prices are getting more and more expensive."],["fix","Correct the mistake: It is getting more and more hotter.","It is getting hotter and hotter."]]},
+{k:"Correlative Comparisons",vi:"So sánh song hành • the more …, the more …",
+d:"So sánh song hành (so sánh đồng tiến) diễn tả <b>hai sự việc thay đổi cùng nhau</b>: vế thứ nhất thay đổi (tăng/giảm) thì vế thứ hai cũng thay đổi theo.",
+i:["Quan hệ tỉ lệ thuận: The more you practise, the better you become.","Quan hệ tỉ lệ nghịch: The more he eats, the less he exercises.","Nói gọn, thành ngữ: The sooner, the better. • The bigger, the better."],
+s:[["The + so sánh hơn + S + V, the + so sánh hơn + S + V","The harder you work, the more you earn."],["The more + N + S + V, the more + N + S + V","The more money you have, the more you spend."],["The + so sánh hơn + S + be, the + so sánh hơn + S + be","The older he got, the wiser he became."],["Dạng rút gọn: The + so sánh hơn, the + so sánh hơn","The sooner, the better."]],
+n:["<b>Cả hai vế</b> đều bắt đầu bằng the + dạng so sánh hơn.","Không dùng <b>than</b>, không dùng so sánh nhất (✗ the most … the most).","Sau cụm the + so sánh hơn là <b>S + V bình thường</b>, không đảo ngữ.","Vế đầu thường là điều kiện/nguyên nhân, vế sau là kết quả.","Dạng ngắn gọn thường gặp trong thành ngữ: The more, the merrier."],
+a:["<mark>Bước 1:</mark> Xác định hai điều thay đổi cùng nhau.","<mark>Bước 2:</mark> Chuyển mỗi vế thành dạng so sánh hơn (-er hoặc more).","<mark>Bước 3:</mark> Đặt the trước mỗi dạng so sánh rồi đưa lên đầu vế.","<mark>Bước 4:</mark> Ghép S + V vào sau, ngăn cách hai vế bằng dấu phẩy."],
+q:[["mc","The harder you work, the ___ you earn.","more",["more","most","much"]],["mc","The earlier you leave, the ___ you will arrive.","sooner",["soon","sooner","soonest"]],["mc","Which is correct?","The more you practise, the better you become.",["More you practise, better you become.","The more you practise, the better you become.","The most you practise, the best you become."]],["mc","The ___ the weather is, the more people go to the beach.","hotter",["hot","hotter","hottest"]],["mc","Shortened form: “The ___, the better.”","bigger",["bigger","biggest","more big"]],["fill","The more you read, the ___ your vocabulary becomes. (good)","better"],["fill","The older he got, the ___ he became. (wise)","wiser"],["fill","The more money you have, the ___ you spend.","more"],["fill","The ___ you eat, the thinner you become. (little)","less"],["rw","Rewrite: If you study more, you will know more. (Start: The more…)","The more you study, the more you know.|The more you study, the more you will know."],["rw","Rewrite: If it is bigger, it is better. (Start: The bigger…)","The bigger it is, the better it is.|The bigger, the better."],["fix","Correct the mistake: The more you study, the most you know.","The more you study, the more you know."]]}
+];
+const L={mc:"Trắc nghiệm",fill:"Điền từ",rw:"Viết lại câu",fix:"Sửa lỗi"};
+const R=["I. ĐỊNH NGHĨA","II. USES – CÁCH DÙNG","III. STRUCTURE – CẤU TRÚC","IV. LƯU Ý","V. CÁCH ÁP DỤNG","VI. MỘT SỐ BÀI TẬP"];
+let cur=0,st=T.map(()=>({}));
+const nav=document.getElementById("nav"),app=document.getElementById("app");
+T.forEach((t,i)=>{const b=document.createElement("button");b.innerHTML=t.k+"<small>"+t.vi+"</small>";b.onclick=()=>{cur=i;draw();scrollTo({top:0,behavior:"smooth"})};nav.appendChild(b)});
+const norm=s=>s.toLowerCase().replace(/[’‘]/g,"'").replace(/can't|cannot/g,"can not").replace(/won't/g,"will not").replace(/n't\b/g," not").replace(/\bi'm\b/g,"i am").replace(/\b(it|that|what|there|he|she)'s\b/g,"$1 is").replace(/\b(we|you|they)'re\b/g,"$1 are").replace(/[.?!,]+$/,"").replace(/\s+/g," ").trim();
+const ok=(inp,a)=>a.split("|").some(x=>norm(x)===norm(inp));
+const ul=a=>"<ul>"+a.map(x=>"<li>"+x+"</li>").join("")+"</ul>";
+function draw(){
+[...nav.children].forEach((b,i)=>b.classList.toggle("on",i===cur));
+const t=T[cur],s=st[cur];
+const c=(n,b)=>`<section class="card"><h3><b>${R[n].split(".")[0]}</b>${R[n].split(". ")[1]}</h3>${b}</section>`;
+let h=`<h2 class="t">${t.k}</h2><p class="vi">${t.vi}</p>`+c(0,`<p>${t.d}</p>`)+c(1,ul(t.i))+c(2,t.s.map(x=>`<div class="f"><code>${x[0]}</code><span>${x[1]}</span></div>`).join(""))+c(3,ul(t.n))+c(4,ul(t.a));
+h+=c(5,t.q.map((q,i)=>{const r=s[i];
+let body;
+if(q[0]==="mc")body=`<div class="o" data-i="${i}">${q[3].map(o=>`<button ${r?"disabled":""} class="${r&&o===q[2]?"ok2":r&&o===r.v&&!r.ok?"no2":""}">${o}</button>`).join("")}</div>`;
+else body=`<div class="row"><input type="text" data-i="${i}" placeholder="Nhập câu trả lời…" value="${r?r.v.replace(/"/g,"&quot;"):""}" ${r?"disabled":""}><button class="ck" data-i="${i}" ${r?"disabled":""}>Kiểm tra</button></div>`;
+const fb=r?`<div class="fb ${r.ok?"y":"n"}">${r.ok?"✓ Chính xác!":"✗ Đáp án: "+q[2].split("|")[0]}</div>`:"";
+return`<div class="q"><p><span class="tag">${i+1}. ${L[q[0]]}</span>${q[1]}</p>${body}${fb}</div>`}).join("")+`<div class="sc" id="sc"></div>`);
+app.innerHTML=h;score();
+[...nav.children].forEach((b,i)=>{const n=Object.keys(st[i]).length;b.querySelector("small").textContent=T[i].vi+(n?` • ${Object.values(st[i]).filter(x=>x.ok).length}/${T[i].q.length}`:"")})}
+function score(){const s=st[cur],n=Object.keys(s).length,k=Object.values(s).filter(x=>x.ok).length,t=T[cur].q.length,e=document.getElementById("sc");
+e.innerHTML=n<t?`Đã làm ${n}/${t} câu`:`Kết quả: ${k}/${t} ${k===t?"🎉 Xuất sắc!":k>=t*.7?"👍 Rất tốt!":"💪 Hãy ôn lại lý thuyết và thử lại"}<button class="rs" id="rs">Làm lại</button>`;
+const r=document.getElementById("rs");if(r)r.onclick=()=>{st[cur]={};draw()}}
+function answer(i,v){const q=T[cur].q[i];st[cur][i]={v,ok:q[0]==="mc"?v===q[2]:ok(v,q[2])};draw()}
+app.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+if(b.classList.contains("ck")){const i=b.dataset.i,v=app.querySelector(`input[data-i="${i}"]`).value.trim();if(v)answer(+i,v)}
+else if(b.parentElement.classList.contains("o")&&!b.disabled)answer(+b.parentElement.dataset.i,b.textContent)});
+app.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.tagName==="INPUT"){const v=e.target.value.trim();if(v)answer(+e.target.dataset.i,v)}});
+draw();
+</script>
+</body>
+</html>
